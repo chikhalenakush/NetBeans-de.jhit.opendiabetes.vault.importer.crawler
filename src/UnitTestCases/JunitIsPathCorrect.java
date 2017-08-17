@@ -16,50 +16,51 @@ import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
 public class JunitIsPathCorrect {
-	public String path;
-	Boolean expected = false;
 
-	static Boolean UserInputTrueorFalse = false;
+    public String path;
+    Boolean expected = false;
 
-	@Parameterized.Parameters
-	public static Collection Path() {
+    static Boolean UserInputTrueorFalse = false;
 
-		return Arrays.asList(new Object[][] { { System.getProperty("user.home"), true },
-				{ System.getProperty("user.home") + "/RandomFolder", false },
-				{ System.getProperty("user.home") + "/testfolder", false },
-				{ System.getProperty("user.home") + "/desktop", true } });
-	}
+    @Parameterized.Parameters
+    public static Collection Path() {
 
-	public JunitIsPathCorrect(String path, Boolean expected) {
-		System.out.println("TestJunit-> Path:" + path + " expected:" + expected);
-		this.path = path;
-		this.expected = expected;
-	}
+        return Arrays.asList(new Object[][]{{System.getProperty("user.home"), true},
+        {System.getProperty("user.home") + "/RandomFolder", false},
+        {System.getProperty("user.home") + "/testfolder", false},
+        {System.getProperty("user.home") + "/desktop", true}});
+    }
 
-	@Test
-	public void test() throws IOException, ParseException {
+    public JunitIsPathCorrect(String path, Boolean expected) {
+        System.out.println("TestJunit-> Path:" + path + " expected:" + expected);
+        this.path = path;
+        this.expected = expected;
+    }
 
-		Boolean Result = getpath(path);
+    @Test
+    public void test() throws IOException, ParseException {
 
-		assertEquals(expected, Result);
+        Boolean Result = getpath(path);
 
-	}
+        assertEquals(expected, Result);
 
-	private Boolean getpath(String path2) {
-		try {
+    }
 
-			String outputFolder = path2 + File.separator + "careLink-Export";
+    private Boolean getpath(String path2) {
+        try {
 
-			PrintWriter pw1 = new PrintWriter(new File(outputFolder + (new Date().getTime()) + ".csv"));
-			pw1.write("Test");
-			pw1.close();
+            String outputFolder = path2 + File.separator + "careLink-Export";
 
-			return true;
+            PrintWriter pw1 = new PrintWriter(new File(outputFolder + (new Date().getTime()) + ".csv"));
+            pw1.write("Test");
+            pw1.close();
 
-		} catch (IOException e) {
+            return true;
 
-			return false;
-		}
-	}
+        } catch (IOException e) {
+
+            return false;
+        }
+    }
 
 }
