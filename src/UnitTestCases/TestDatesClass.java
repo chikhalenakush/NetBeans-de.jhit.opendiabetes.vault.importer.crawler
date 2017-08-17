@@ -1,4 +1,5 @@
 package UnitTestCases;
+
 import UnitTestCases.JunitAreDatesCorrect;
 import java.io.IOException;
 import java.text.ParseException;
@@ -10,19 +11,18 @@ import org.junit.runner.notification.Failure;
 
 public class TestDatesClass {
 
-	public void AreDatesCorrect() throws IOException, ParseException {
-		// TODO Auto-generated method stub
-	
-		
-		//Result result = JUnitCore.this.run(jt);
-		Result result = JUnitCore.runClasses(JunitAreDatesCorrect.class);
-		//Result result1 = JUnitCore.runClasses()
-		for (Failure failure : result.getFailures()) {
-			System.out.println(failure.toString());
-		}
+    public void AreDatesCorrect() throws IOException, ParseException {
+        // TODO Auto-generated method stub
 
-		System.out.println("Test case Result is : " + result.wasSuccessful());
-		
-	}
+        //Result result = JUnitCore.this.run(jt);
+        Result result = JUnitCore.runClasses(JunitAreDatesCorrect.class);
+        //Result result1 = JUnitCore.runClasses()
+        for (Failure failure : result.getFailures()) {
+            System.out.println(failure.toString());
+        }
+
+        System.out.println("Test case Result is : " + result.wasSuccessful());
+
+    }
 
 }
