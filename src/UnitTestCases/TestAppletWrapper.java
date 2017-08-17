@@ -7,19 +7,17 @@ import org.junit.runner.notification.Failure;
 
 public class TestAppletWrapper {
 
-	public void deviceAndSNTest() {
-		// TODO Auto-generated method stub
+    public void deviceAndSNTest() {
+        // TODO Auto-generated method stub
 
-		//Result result = JUnitCore.this.run(jt);
-		Result result = JUnitCore.runClasses(JunitDeviceAndSNCorrect.class);
-		//Result result1 = JUnitCore.runClasses()
-		for (Failure failure : result.getFailures()) {
-			System.out.println(failure.toString());
-		}
+        //Result result = JUnitCore.this.run(jt);
+        Result result = JUnitCore.runClasses(JunitDeviceAndSNCorrect.class);
+        //Result result1 = JUnitCore.runClasses()
+        for (Failure failure : result.getFailures()) {
+            System.out.println(failure.toString());
+        }
 
-		System.out.println("Test case Result is : " + result.wasSuccessful());
-		
-	}
-	}
+        System.out.println("Test case Result is : " + result.wasSuccessful());
 
-
+    }
+}
